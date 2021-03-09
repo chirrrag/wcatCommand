@@ -87,8 +87,9 @@ function wcat(arr) {
 
            }
         } else if(src == '-b') {
+            // fill the non empty lines...
             if(secondFile == undefined) {
-
+                removeblankline(firstFile);
             }
             else {
                 
@@ -162,5 +163,18 @@ function fileSolver(arr) {
     console.log(reader);
 }
 
+function removeblankline(path) {
+    let data = fs.readFileSync(path, "utf8");
+  
+    let lines = data.split(/\r?\n/);
+    let p = 0;
+    for (i = 0; i < lines.length; i++) {
+      let data = lines[i];
+      if (data.length > 0) {
+        console.log(p + 1, data);
+        p = p + 1;
+      }
+    }
+  }
 
 wcat(input);
