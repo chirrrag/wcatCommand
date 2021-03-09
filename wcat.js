@@ -84,7 +84,16 @@ function wcat(arr) {
                readLines(firstFile);
            }
            else {
-
+                if(secondFile == ">" || secondFile == ">>") {
+                    // second idx in array is a symbol
+                    let thirdFile = arr[3];
+                    symbolSolver(symbol, thirdFile, firstFile);
+                    readLines(firstFile);
+                    console.log(readContent(firstFile));
+                }
+                else if(secondFile == '-n' || secondFile == '-b') {
+                    
+                }
            }
         } else if(src == '-b') {
             // fill the non empty lines...
@@ -92,7 +101,17 @@ function wcat(arr) {
                 removeblankline(firstFile);
             }
             else {
-                
+                if(secondFile == ">" || secondFile == ">>") {
+                    // second idx in array is a symbol
+                    let thirdFile = arr[3];
+                    symbolSolver(symbol, thirdFile, firstFile);
+                    removeblankline(firstFile);
+                    // console.log(readContent(firstFile));
+                }
+                else if(secondFile == '-n' || secondFile == '-b') {
+                    let thirdFile = arr[3];
+                    
+                }
             }
         }
     }
